@@ -1,0 +1,35 @@
+Comparación de paradigmas de programación aplicados al sistema de salud
+1. Paradigma orientado a objetos (POO)
+•	Ventajas:
+o	Permite modelar entidades reales (Paciente, Cita, Reporte, Inventario).
+o	Favorece modularidad, reutilización y mantenimiento.
+o	Encapsula datos y comportamiento en una misma clase.
+•	Desventajas:
+o	Puede ser más complejo de implementar en sistemas pequeños.
+o	Requiere mayor planificación inicial (diagramas UML, jerarquías).
+•	Caso de uso en el C.M.I. Santa Rosa:
+o	Clases Paciente, Cita, Usuario, InventarioMedicamentos.
+o	Relaciones entre objetos para gestionar citas y reportes.
+2. Paradigma funcional
+•	Ventajas:
+o	Procesa datos de manera declarativa y concisa.
+o	Facilita operaciones sobre listas (filtrar pacientes, generar estadísticas).
+o	Reduce errores al evitar estados mutables.
+•	Desventajas:
+o	Menos intuitivo para modelar entidades del mundo real.
+o	Requiere mayor conocimiento matemático y abstracción.
+•	Caso de uso en el C.M.I. Santa Rosa:
+o	Generación de reportes estadísticos (ej. número de citas por tipo de paciente).
+o	Procesamiento de listas de medicamentos próximos a vencer.
+
+3. Paradigma orientado a eventos
+•	Ventajas:
+o	Ideal para sistemas interactivos y notificaciones.
+o	Permite reaccionar a acciones de usuarios (ej. registrar cita, cancelar).
+o	Escalable para integrar alertas y recordatorios.
+•	Desventajas:
+o	Requiere infraestructura adicional (manejadores de eventos, colas).
+o	Puede complicar el flujo si no se diseña bien.
+•	Caso de uso en el C.M.I. Santa Rosa:
+o	Notificaciones automáticas de citas médicas.
+o	Alertas de stock bajo en medicamentos.
