@@ -1,0 +1,38 @@
+Principios de código limpio aplicados
+
+•	Legibilidad: nombres de clases y métodos claros (Paciente, Cita, confirmar()), comentarios en español.
+•	Modularidad: separación de responsabilidades (pacientes, citas, inventario, reportes).
+•	Consistencia: uso de convenciones PEP8 en Python.
+•	Tratamiento seguro de datos: cifrado SHA-256 para DNI, evitando exposición en texto plano.
+•	Control de versiones: repositorio GitHub con commits descriptivos.
+
+Principios SOLID aplicados
+Principio	Aplicación en el sistema
+S – Single Responsibility	Cada clase tiene una única responsabilidad: Paciente gestiona datos personales, Cita gestiona programación, InventarioMedicamentos controla stock.
+O – Open/Closed	El sistema permite extender funcionalidades (ej. nuevos tipos de reportes) sin modificar código existente.
+L – Liskov Substitution	Subclases de Usuario (Médico, Obstetra, Administrativo) pueden reemplazar a la clase base sin romper el sistema.
+I – Interface Segregation	Métodos específicos en cada clase, evitando interfaces demasiado generales.
+D – Dependency Inversion	SistemaSalud depende de abstracciones (listas de pacientes y citas), no de implementaciones rígidas.
+
+Evidencia de pruebas automatizadas (pytest)
+Archivo test_sistema.py:
+
+import pytest
+from main import Paciente, Cita, SistemaSalud
+from datetime import datetime
+
+def test_registro_paciente():
+    p = Paciente("12345678", "María Quispe", 28, "gestante")
+    assert p.get_nombre() == "María Quispe"
+
+
+def test_cita_confirmada():
+    p = Paciente("87654321", "Juan Pérez", 5, "niño")
+    c = Cita(p, datetime.now().date(), "10:00", "Control pediátrico")
+    c.confirmar()
+    assert c.get_estado() == "Confirmada"
+
+def test_singleton_instancia_unica():
+    s1 = SistemaSalud.get_instancia()
+    s2 = SistemaSalud.get_instancia()
+    assert s1 is s2
