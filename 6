@@ -1,0 +1,16 @@
+Patrón de diseño aplicado: Singleton
+•	Justificación técnica: El patrón Singleton garantiza que exista una única instancia del sistema que gestione los datos de pacientes, citas y reportes. Esto evita duplicidad de información y facilita el control centralizado de operaciones.
+•	Implementación conceptual (Python):
+
+    class SistemaSalud:
+    _instancia = None
+
+    def __init__(self):
+        self.pacientes = []
+        self.citas = []
+
+    @staticmethod
+    def getInstancia():
+        if SistemaSalud._instancia is None:
+            SistemaSalud._instancia = SistemaSalud()
+        return SistemaSalud._instancia
