@@ -1,0 +1,11 @@
+Relaciones UML
+•	Herencia: Usuario → Médico, Obstetra, Administrativo. Cada subclase hereda atributos y métodos comunes, pero añade funciones específicas.
+•	Composición: Paciente contiene Cita. Si se elimina el paciente, sus citas también se eliminan.
+•	Agregación: Reporte utiliza datos de InventarioMedicamentos y Cita, pero puede existir independientemente.
+
+🧩 Decisiones de modelado
+1.	Modularidad: se separan las clases por responsabilidad (pacientes, citas, usuarios, reportes).
+2.	Escalabilidad: el patrón Singleton permite extender el sistema sin duplicar instancias.
+3.	Mantenibilidad: el uso de herencia y composición facilita la actualización del código.
+4.	Cumplimiento normativo: los atributos sensibles (DNI, historial) se manejan con cifrado conforme a la Ley N.º 29733.
+5.	Herramienta de código abierto: el diagrama se puede construir en draw.io o StarUML, exportando en formato .png o .svg para el informe.
