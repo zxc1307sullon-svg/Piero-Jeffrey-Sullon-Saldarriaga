@@ -1,0 +1,40 @@
+Reflexión sobre consecuencias de código de baja calidad
+•	Para profesionales de salud:
+o	Errores en programación de citas → pacientes no atendidos a tiempo.
+o	Reportes inconsistentes → decisiones clínicas basadas en datos incorrectos.
+•	Para pacientes:
+o	Riesgo de pérdida de información clínica → tratamientos inadecuados.
+o	Exposición de datos personales → vulneración de la privacidad y posibles fraudes.
+•	Para la institución:
+o	Baja confianza en el sistema → resistencia a la digitalización.
+o	Incumplimiento de la Ley N.º 29733 → sanciones legales y administrativas.
+
+📑 Informe Técnico
+1. Síntesis de decisiones de diseño
+•	Paradigmas integrados: se combinaron programación orientada a objetos (modelado de entidades), funcional (procesamiento de reportes) y orientada a eventos (notificaciones).
+•	Patrón de diseño: se aplicó Singleton para garantizar una única instancia del sistema, evitando duplicidad de datos.
+•	Modelo UML: se definieron clases principales (Paciente, Cita, Usuario, InventarioMedicamentos, Reporte) con relaciones de herencia, composición y agregación.
+•	Seguridad: se implementó cifrado SHA-256 para datos sensibles (DNI), cumpliendo la Ley N.º 29733.
+•	Pruebas automatizadas: se validaron funcionalidades críticas con pytest, asegurando robustez del módulo.
+
+2. Limitaciones técnicas identificadas
+•	Escalabilidad limitada: el prototipo actual funciona con listas en memoria; requiere migración a una base de datos robusta (ej. PostgreSQL) para manejar grandes volúmenes de pacientes.
+•	Interfaz de usuario básica: el sistema aún no cuenta con una interfaz gráfica amigable para personal médico.
+•	Notificaciones simuladas: los eventos de citas y stock bajo no están integrados con servicios reales (SMS, correo electrónico).
+•	Conectividad: en contextos rurales, la falta de internet estable puede limitar el uso del sistema.
+3. Recomendaciones para evolución futura
+•	Migración a base de datos relacional: implementar PostgreSQL o MySQL para mayor escalabilidad.
+•	Interfaz web/móvil: desarrollar una aplicación accesible para médicos y pacientes.
+•	Integración con servicios externos: habilitar notificaciones reales vía correo electrónico o SMS.
+•	Módulos adicionales: historia clínica electrónica, gestión de personal, integración con la Red de Salud Lima Norte.
+•	Seguridad avanzada: aplicar autenticación multifactor y cifrado completo de la base de datos.
+
+4. Reflexión ética
+El ingeniero de software en el ámbito de la salud tiene una responsabilidad ética directa frente a los usuarios del sistema:
+•	Profesionales de salud: dependen de la confiabilidad del software para tomar decisiones clínicas. Un error en el sistema puede retrasar diagnósticos o tratamientos.
+•	Pacientes: confían en que sus datos personales y clínicos estarán protegidos. La exposición indebida de información puede vulnerar su privacidad y dignidad.
+•	Beneficiados: pacientes atendidos en el C.M.I. Santa Rosa y personal médico que optimiza su trabajo con un sistema digital confiable.
+•	Posibles excluidos: comunidades rurales sin acceso a internet o sin capacitación digital, que podrían quedar fuera de la solución si no se implementan estrategias de inclusión tecnológica.
+
+5. Conclusión
+La síntesis de decisiones de diseño y las recomendaciones futuras muestran que el sistema del C.M.I. Santa Rosa es un primer paso hacia la digitalización de la salud en Lima Norte. Sin embargo, su evolución debe considerar tanto los aspectos técnicos como los éticos, garantizando que la tecnología sirva a todos los pacientes y profesionales de salud, sin exclusiones.
