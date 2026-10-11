@@ -1,0 +1,11 @@
+Diagrama de clases UML – Sistema del C.M.I. Santa Rosa
+El diagrama muestra las clases principales, sus atributos y métodos, las relaciones de herencia, agregación y composición, y la aplicación de un patrón de diseño Singleton para la gestión central del sistema.
+
+Descripción de las clases principales:
+
+Paciente	dni, nombre, edad, tipo Paciente	registrar (), actualizar (), obtener Historial ()	Asociada a Cita (1: N)
+Cita	idCita, fecha, hora, motivo, paciente	endar(), cancelar(), modificar()	Composición con Paciente
+Usuario	idUsuario, nombre, rol	autenticar(), asignarCita()	Herencia: Médico, Obstetra, Administrativo
+InventarioMedicamentos	idMedicamento, nombre, stock, vencimiento	ingresar(), descontar(),verificarStock()	Agregación con Reporte
+Reporte	idReporte, tipo, fecha, datos	generarPDF(), generarEstadísticas()	Agregación con Cita e InventarioMedicamentos
+SistemaSalud (Singleton)	instancia, listaPacientes, listaCitas	getInstancia(), guardarDatos(), cargarDatos()	Controla todas las clases del sistema
